@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    //border:10px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+<script type="text/javascript">
+    
+    var minimum = 1;
+    var maximum = 9;
+    
+     //random operator
+    var ops=['+','-'];
+    var opindex = Math.floor(Math.random()*1);
+    var operator = ops[opindex];
+
+    var correct = 0;
+    var total = 0;
+    var wrong = 0;
+    
+    //check score function
+    function check_score(){
+        alert("Total: " +total+ "\n\n" + "Correct: " +correct+ "\n\n" + "Wrong: " +wrong);
+    }
+    
+    //reset score function
+    function reset_score(){
+        total = 0;
+        correct = 0;
+        wrong = 0;
+        //alert("Total: " +total+ "\n\n" + "Correct: " +correct+ "\n\n" + "Wrong: " +wrong);alert("Correct answer.\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong););
+    }
+    
+    //integer addition function
+    function intadd_window()
+    {
+        total++;
+        var int1 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+        var int2 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+        var uanswer = prompt("Integer addition\n\n"+int1 + " " + "+" + " " + int2+ "\n","answer");
+        var qanswer = int1 + int2;
+        if (uanswer == qanswer) {
+            correct++;
+          alert("Correct answer.\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+          
+        } else {
+            wrong++;
+          alert("WRONG! The correct answer is "+qanswer+"\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+        }
+        return check_score;
+    }
+
+  //integer subtraction function
+  function intsub_window()
+  {
+      total++;
+      var int1 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+      var int2 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+      var uanswer = prompt("Integer subtraction\n\n"+int1 + " " + "-" + " " + int2+ "\n","answer");
+      var qanswer = int1 - int2;
+       
+            if (uanswer == qanswer) {
+                 correct++;
+              alert("Correct answer.\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+              
+            } else {
+                wrong++;
+              alert("WRONG! The correct answer is "+qanswer+"\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+            }
+      
+  }
+
+  //float addition function
+
+  function floatadd_window()
+  {
+            total++;
+            var minimum = 1.0;
+            var maximum = 9.0;
+            var int1 = (Math.random() * (maximum - minimum + 1)+ minimum).toPrecision(2);
+            var int2 = (Math.random() * (maximum - minimum + 1)+ minimum).toPrecision(2);
+            
+            var parse_int1=parseFloat(int1);
+            var parse_int2=parseFloat(int2);
+            
+            var uanswer = prompt(int1 + " " + "+" + " " + int2);
+            
+            var qanswer = (parse_int1 - parse_int2).toPrecision(2);
+            //alert("qanswer="+qanswer);
+            
+            if (uanswer == qanswer)
+            {
+                    correct++;
+                    alert("Correct answer.\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+                    
+                  } else {
+                      wrong++;
+                    alert("WRONG! The correct answer is "+qanswer+"\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+                  }
+      
+  }
+
+ //float subtraction function
+
+ function floatsub_window()
+ {
+     total++;
+     var minimum = 1.0;
+     var maximum = 9.0;
+     var int1 = (Math.random() * (maximum - minimum + 1)+ minimum).toPrecision(2);
+     var int2 = (Math.random() * (maximum - minimum + 1)+ minimum).toPrecision(2);
+     
+    var parse_int1=parseFloat(int1);
+    var parse_int2=parseFloat(int2);
+     
+     var uanswer = prompt("Float Subtraction\n\n"+int1 + " " + "-" + " " + int2+ "\n","answer");
+     var qanswer = (parse_int1 - parse_int2).toPrecision(2);
+     alert("qanswer="+qanswer);
+           if (uanswer == qanswer) {
+             correct++;
+             alert("Correct answer.\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+             
+           } else {
+               wrong++;
+             alert("WRONG! The correct answer is "+qanswer+"\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+           }
+     
+ }
+
+ //complex addition function
+ 
+ function complexadd_window()
+ {
+     //alert(opindex);
+     total++;
+     var int1 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+     var int2 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+     var int3 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+     var int4 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+     var uanswer = prompt("Complex addition\n\n"+"("+int1 +operator+ + int2+"i) "+ "+"+"(" +int3 +operator+  int4+"i) " + "\n", "answer");
+     var part1 = int1 + int3;
+     var part2 = int2 + int4;
+     
+     //var qanswer = part1+"+"+part2+"i";
+     var qanswer = part1+"+("+part2+"i)";
+     //alert(qanswer);
+      
+           if (uanswer == qanswer) {
+             correct++;
+             alert("Correct answer.\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+             
+           } else {
+               wrong++;
+             alert("WRONG! The correct answer is "+qanswer+"\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+           }
+     
+ }
+
+
+ // complex subtraction
+ function complexsub_window()
+ {
+     total++;
+     var int1 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+     var int2 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+     var int3 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+     var int4 = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+     var uanswer = prompt("Complex subtraction\n\n"+"("+int1 +operator+ + int2+"i) "+ "-"+"(" +int3 +operator+  int4+"i) " + "\n", "answer");
+     var part1 = int1 - int3;
+     var part2 = int2 - int4;
+     
+     if (part2<0){
+      part2="("+part2+"i)";
+      var qanswer = part1+"-"+part2;
+      }
+     else{
+      var qanswer = part1+"-("+part2+"i)";
+     }
+     
+      
+     if (uanswer == qanswer) {
+        correct++;
+        alert("Correct answer.\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+             
+     }else {
+             wrong++;
+             alert("WRONG! The correct answer is "+qanswer+"\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
+           }
+     
+ }
+
+
+
+</script>
+
+<h1 style="text-align:center;width:1450px;margin-bottom:100px;"><b> Simple Math Quiz </b></h1>
+<div id = "firstoption" style="text-align:center;width:1430px;margin-bottom:100px; ">
+    <button style ="margin-right:200px;font-size:20px;" onclick = "intadd_window()">Integer Addition</button>
+    <button style ="font-size:20px;" onclick ="intsub_window()">Integer Subtraction</button>
+</div>
+ 
+<div id = "secondoption" style="text-align:center;width:1430px;margin-bottom:100px;">
+    <button style ="margin-right:200px;font-size:20px;" onclick = "floatadd_window()">Float Addition</button>
+    <button style ="font-size:20px;"onclick = "floatsub_window()">Float Subtraction</button>
+</div>
+
+<div id = "thirdoption" style="text-align:center;width:1430px;margin-bottom:100px;">
+    <button style ="margin-right:200px;font-size:20px;" onclick = "complexadd_window()">Complex Addition</button>
+    <button style ="font-size:20px;" onclick = "complexsub_window()">Complex Subtraction</button>
+</div>
+    
+<div id = "fourthoption" style="text-align:center;width:1430px;margin-bottom:100px;">
+    <button style ="margin-right:200px;font-size:20px;" onclick = "check_score()">Check Score</button>
+    <button style ="font-size:20px;" onclick = "reset_score()">Reset Score</button>
+</div>
+
+
+</body>
+</html>
