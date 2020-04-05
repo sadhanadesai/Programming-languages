@@ -91,7 +91,7 @@ canvas {
             
             var uanswer = prompt(int1 + " " + "+" + " " + int2);
             
-            var qanswer = (parse_int1 - parse_int2).toPrecision(2);
+            var qanswer = (parse_int1 + parse_int2).toFixed(1);
             //alert("qanswer="+qanswer);
             
             if (uanswer == qanswer)
@@ -121,7 +121,7 @@ canvas {
      
      var uanswer = prompt("Float Subtraction\n\n"+int1 + " " + "-" + " " + int2+ "\n","answer");
      var qanswer = (parse_int1 - parse_int2).toPrecision(2);
-     alert("qanswer="+qanswer);
+     //alert("qanswer="+qanswer);
            if (uanswer == qanswer) {
              correct++;
              alert("Correct answer.\nTotal:" +total+"\nCorrect="+correct+"\nWrong="+wrong);
