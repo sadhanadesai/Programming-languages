@@ -1,0 +1,18 @@
+maxodd([X],Res):-Res =X.
+maxodd([H,_,Y|T],Res):-Y>H,maxodd([Y|T],Res).
+maxodd([H,_,Y|T],Res):-Y<H,maxodd([H|T],Res).
+
+deleteNList(Num,L,L1):- deleteNList(Num,L,L1,Num).
+deleteNList(_,[],[],_).
+deleteNList(Num,[_|T],P,1):-deleteNList(Num,T,P,Num).
+deleteNList(Num,[H|T],[H|P],Num2):- Num2>1,Num3 is Num2-1, deleteNList(Num,T,P,Num3).
+
+replace_first([],_,_,Res):- Res = [].
+replace_first([X|T], A, Y, Res):- X==A,Res=[Y|T].
+replace_first([X|T], A, Y, [X|Res]):- X\==A, replace_first(T, A, Y,Res).
+
+position(_,[],Res):-Res=[].
+position(K,X,Res):-position(1,K,X,Res).
+position(_,_,[],Res):-Res=[].
+position(A,K,[M|N],Res):- M==K, A1 is A+1, position(A1,K,N,Res1),Res=[A|Res1].
+position(A,K,[M|N],Res):- M\==K,A1 is A+1, position(A1,K,N,Res).
